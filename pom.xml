@@ -20,6 +20,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.40</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.liquibase/liquibase-core -->
         <dependency>
             <groupId>org.liquibase</groupId>
@@ -63,8 +69,9 @@
                         <vat_table_name>${vat.table_name}</vat_table_name>
                         <vat_column_name>${vat.column_name}</vat_column_name>
                         <vat_default_value>${vat.default_value}</vat_default_value>
+                        <db_vendor>${db_vendor}</db_vendor>
                     </systemProperties>
-                    <propertyFile>src/main/resources/liquibase/conf/liquibase-${engine}.properties</propertyFile>
+                    <propertyFile>src/main/resources/liquibase/conf/liquibase-${db_vendor}.properties</propertyFile>
                     <dropFirst>${isDropFirstEnable}</dropFirst>
                     <logging>DEBUG</logging>
                 </configuration>
@@ -82,9 +89,9 @@
 
     <profiles>
         <profile>
-            <id>mysql</id>
+            <id>postgresql</id>
             <properties>
-                <engine>mysql</engine>
+                <db_vendor>postgresql</db_vendor>
                 <vat.table_name>Invoice</vat.table_name>
                 <vat.column_name>vat</vat.column_name>
                 <vat.default_value>22</vat.default_value>
@@ -93,9 +100,9 @@
             </properties>
         </profile>
         <profile>
-            <id>postgresql</id>
+            <id>mysql</id>
             <properties>
-                <engine>postgresql</engine>
+                <db_vendor>mysql</db_vendor>
                 <vat.table_name>Invoice</vat.table_name>
                 <vat.column_name>vat</vat.column_name>
                 <vat.default_value>22</vat.default_value>

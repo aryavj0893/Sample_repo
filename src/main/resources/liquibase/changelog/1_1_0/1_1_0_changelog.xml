@@ -11,12 +11,12 @@
     <!--<sqlFile path="00_drop_db.sql" relativeToChangelogFile="true" />-->
     <!--</changeSet>-->
 
-    <changeSet id="20181023_create_table" author="diego">
-        <sqlFile path="${db_vendor}/01_tables.sql" relativeToChangelogFile="true"/>
+    <changeSet id="201701282024_data_firt_trunk" author="diego">
+        <sqlFile path="sql/03_data.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="20181023_create_fk_and_idx" author="diego">
-        <sqlFile path="${db_vendor}/02_fk_and_idx.sql" relativeToChangelogFile="true"/>
+    <changeSet id="201702251546_data_second_trunk" author="diego">
+        <sqlFile path="sql/04_more_data.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
     <changeSet author="diego" id="1.0">
