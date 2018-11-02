@@ -15,12 +15,12 @@
         <sqlFile path="${db_vendor}/01_tables.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="20181023_create_fk_and_idx" author="diego">
+    <!-- <changeSet id="20181023_create_fk_and_idx" author="diego">
         <sqlFile path="${db_vendor}/02_fk_and_idx.sql" relativeToChangelogFile="true"/>
-    </changeSet>
+    </changeSet> -->
 
     <changeSet author="diego" id="1.0">
-        <tagDatabase tag="1.0"/>
+        <tagDatabase tag="1.0.0"/>
     </changeSet>
 
 </databaseChangeLog>

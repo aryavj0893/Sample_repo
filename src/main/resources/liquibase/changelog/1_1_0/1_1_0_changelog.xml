@@ -7,20 +7,21 @@
                             http://www.liquibase.org/xml/ns/dbchangelog
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <!--<changeSet id="201701282021" author="diego">-->
-    <!--<sqlFile path="00_drop_db.sql" relativeToChangelogFile="true" />-->
-    <!--</changeSet>-->
 
-    <changeSet id="201701282024_data_firt_trunk" author="diego">
-        <sqlFile path="sql/03_data.sql" relativeToChangelogFile="true"/>
+    <changeSet id="20181024_album_topology" author="diego">
+        <sqlFile path="${db_vendor}/03_album_topology.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="201702251546_data_second_trunk" author="diego">
-        <sqlFile path="sql/04_more_data.sql" relativeToChangelogFile="true"/>
+    <changeSet id="20181024_invoice_topology" author="diego">
+        <sqlFile path="${db_vendor}/04_invoice_topology.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="20181024_playlist" author="diego">
+        <sqlFile path="${db_vendor}/05_playlist.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
     <changeSet author="diego" id="1.0">
-        <tagDatabase tag="1.0"/>
+        <tagDatabase tag="1.1.0"/>
     </changeSet>
 
 </databaseChangeLog>

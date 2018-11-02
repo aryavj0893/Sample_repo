@@ -11,6 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <liquibase.maven.version>3.6.2</liquibase.maven.version>
+        <liquibase.logging>debug</liquibase.logging>
     </properties>
 
     <dependencies>
@@ -41,12 +42,6 @@
 
     <build>
         <finalName>liquibase-chinook</finalName>
-        <!--<resources>-->
-        <!--<resource>-->
-        <!--<directory>src/main/resources</directory>-->
-        <!--<filtering>true</filtering>-->
-        <!--</resource>-->
-        <!--</resources>-->
         <plugins>
             <!-- Use Java migrazione-parameters.7 -->
             <plugin>
@@ -73,7 +68,8 @@
                     </systemProperties>
                     <propertyFile>src/main/resources/liquibase/conf/liquibase-${db_vendor}.properties</propertyFile>
                     <dropFirst>${isDropFirstEnable}</dropFirst>
-                    <logging>DEBUG</logging>
+                    <logging>debug</logging>
+                    <verbose>false</verbose>
                 </configuration>
                 <executions>
                     <execution>

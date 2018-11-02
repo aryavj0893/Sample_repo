@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+  ansible:
+    image: microsoft/ansible:ansible2.6.1
+    restart: always
+    volumes:
+      - ./:/tmp/diego
