@@ -1,20 +1,18 @@
-<databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
                             http://www.liquibase.org/xml/ns/dbchangelog
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <!--     Country     -->
+    <!-- Table Country     -->
 
-    <changeSet id="20170130002415" author="diego">
+    <changeSet id="20181102_country" author="diego">
         <createTable tableName="Country">
             <column name="id" type="int(10)">
                 <constraints nullable="false" primaryKey="true" />
             </column>
-            <column name="name" type="varchar(20)" >
+            <column name="name" type="varchar(20)">
                 <constraints unique="true" nullable="false" uniqueConstraintName="unq_country_name"/>
             </column>
         </createTable>
@@ -24,14 +22,14 @@
         </rollback>
     </changeSet>
 
-    <!--     City     -->
+    <!-- Table City     -->
 
-    <changeSet id="20170130000254" author="diego">
+    <changeSet id="20181102_city" author="diego">
         <createTable tableName="City">
             <column name="id" type="int(10)">
                 <constraints nullable="false" primaryKey="true" />
             </column>
-            <column name="name" type="varchar(20)" >
+            <column name="name" type="varchar(20)">
                 <constraints unique="true" nullable="false" uniqueConstraintName="unq_city_name"/>
             </column>
             <column name="state" type="varchar(10)"/>
@@ -42,9 +40,9 @@
         </rollback>
     </changeSet>
 
-    <changeSet id="20170206_add_country_id_to_city" author="diego">
-        <addColumn
-                tableName="City">
+    <!-- alter city table -->
+    <changeSet id="20181102_add_country_id_to_city" author="diego">
+        <addColumn tableName="City">
             <column name="country_id" type="INTEGER"/>
         </addColumn>
         <rollback>
@@ -52,22 +50,17 @@
         </rollback>
     </changeSet>
 
-    <changeSet id="201702062256_add_fk_city_country" author="diego" >
-        <addForeignKeyConstraint
-                constraintName="fk_city_country"
-                baseColumnNames="country_id"
-                baseTableName="City"
-                referencedColumnNames="id"
-                referencedTableName="Country"/>
+    <!-- FK city to country -->
+    <changeSet id="20181102_add_fk_city_country" author="diego">
+        <addForeignKeyConstraint constraintName="fk_city_country" baseColumnNames="country_id" baseTableName="City" referencedColumnNames="id" referencedTableName="Country"/>
 
         <rollback>
-            <dropForeignKeyConstraint   baseTableName="City"
-                                        constraintName="fk_city_country"/>
+            <dropForeignKeyConstraint baseTableName="City" constraintName="fk_city_country"/>
         </rollback>
     </changeSet>
 
-    <changeSet author="diego" id="1.2">
-        <tagDatabase tag="1.2"/>
+    <changeSet author="diego" id="1.2.0">
+        <tagDatabase tag="1.2.0"/>
     </changeSet>
 
 </databaseChangeLog>

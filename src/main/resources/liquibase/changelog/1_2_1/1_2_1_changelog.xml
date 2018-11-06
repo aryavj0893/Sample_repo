@@ -11,7 +11,7 @@
 
     <changeSet id="201702062225_insert_data_Country" author="diego" >
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM Country</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM "Country"</sqlCheck>
         </preConditions>
         <loadData
                 file="01_load_countries.csv"
@@ -26,7 +26,7 @@
 
     <changeSet id="20170206_insert_data_City" author="diego" >
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM City</sqlCheck>
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM "City"</sqlCheck>
         </preConditions>
         <loadData
                 file="02_load_cities.csv"

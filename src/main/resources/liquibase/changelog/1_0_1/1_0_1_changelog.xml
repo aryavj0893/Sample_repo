@@ -1,0 +1,46 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                            http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet id="20181024_employee" author="diego">
+        <sqlFile path="${db_vendor}/01_employee.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="20181024_customer" author="diego">
+        <sqlFile path="${db_vendor}/02_customer.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="20181024_invoice" author="diego">
+        <sqlFile path="${db_vendor}/03_invoice.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="20181024_genre" author="diego">
+        <sqlFile path="${db_vendor}/04_genre.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="20181024_media_type" author="diego">
+        <sqlFile path="${db_vendor}/05_media_type.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+    <changeSet id="20181024_artist" author="diego">
+        <sqlFile path="${db_vendor}/06_artist.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+    <changeSet id="20181024_album" author="diego">
+        <sqlFile path="${db_vendor}/07_album.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    
+    <changeSet id="20181024_playlist" author="diego">
+        <sqlFile path="${db_vendor}/08_playlist.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="diego" id="1.0.1">
+        <tagDatabase tag="1.0.1"/>
+    </changeSet>
+
+</databaseChangeLog>
+

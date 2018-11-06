@@ -9,14 +9,21 @@
 
     <include file="1_0_0/1_0_0_changelog.xml" relativeToChangelogFile="true"/>
 
-    <!-- 1.1-->
-    <include file="1_1_0/1_1_0_changelog.xml" relativeToChangelogFile="true"/>
+    <include file="1_0_1/1_0_1_changelog.xml" relativeToChangelogFile="true"/>
 
-    <!-- 
-
-    <include file="1_2/1_2_changelog.xml" relativeToChangelogFile="true"/>
+    <include file="1_1_1/1_1_1_changelog.xml" relativeToChangelogFile="true"/>
+    
+    <include file="1_2_0/1_2_0_changelog.xml" relativeToChangelogFile="true"/>
 
     <include file="1_2_1/1_2_1_changelog.xml" relativeToChangelogFile="true"/>
+
+    <include file="1_4_0/1_4_0_changelog.xml" relativeToChangelogFile="true"/>
+
+    <include file="1_5_0/1_5_0_changelog.xml" relativeToChangelogFile="true"/>
+    
+    <include file="1_6_0/1_6_0_changelog.xml" relativeToChangelogFile="true"/>
+    <!-- 
+
 
     <include file="1_3/1_3_changelog.xml" relativeToChangelogFile="true"/>
 

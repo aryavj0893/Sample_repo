@@ -7,20 +7,21 @@
                             http://www.liquibase.org/xml/ns/dbchangelog
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <property name="invoice_vat_type" value="INTEGER" />
 
-    <!-- The vat variables are defined into the systemProperties in pom.xml-->
-    <changeSet id="201702121720_add_column_vat_to_invoice" author="diego" runAlways="true" >
-        <addColumn
-                tableName="${vat_table_name}">
-            <column name="${vat_column_name}"
-                    defaultValue="${vat_default_value}"
-                    type="${invoice_vat_type}"/>
-        </addColumn>
+    <changeSet id="20181024_album_topology" author="diego">
+        <sqlFile path="${db_vendor}/01_track.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet author="diego" id="1.4">
-        <tagDatabase tag="1.4"/>
+    <changeSet id="20181024_invoice_topology" author="diego">
+        <sqlFile path="${db_vendor}/02_invoice_line.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="20181024_playlist" author="diego">
+        <sqlFile path="${db_vendor}/03_playlist_track.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="diego" id="1.6.0">
+        <tagDatabase tag="1.6.0"/>
     </changeSet>
 
 </databaseChangeLog>

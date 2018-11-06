@@ -9,30 +9,30 @@
 
     <!--     City     -->
 
-    <changeSet id="201702201918_tbl_mysql" author="diego" dbms="mysql">
-        <createTable tableName="MyMysql">
+    <changeSet id="201702201918_tbl_mysql" author="diego" dbms="postgresql">
+        <createTable tableName="MY_POSTGRESQL_TABLE">
             <column name="id" type="int(10)">
                 <constraints nullable="false" primaryKey="true" />
             </column>
         </createTable>
         <rollback>
-            <dropTable tableName="MyMysql" />
+            <dropTable tableName="MY_POSTGRESQL_TABLE" />
         </rollback>
     </changeSet>
 
-    <changeSet id="201702201918_tbl_h2" author="diego" dbms="h2">
-        <createTable tableName="MyH2">
+    <changeSet id="201702201918_tbl_mysql" author="diego" dbms="oracle">
+        <createTable tableName="MY_ORACLE_TABLE">
             <column name="id" type="int(10)">
                 <constraints nullable="false" primaryKey="true" />
             </column>
         </createTable>
         <rollback>
-            <dropTable tableName="MyH2" />
+            <dropTable tableName="MY_ORACLE_TABLE" />
         </rollback>
     </changeSet>
 
-    <changeSet author="diego" id="1.5">
-        <tagDatabase tag="1.5"/>
+    <changeSet author="diego" id="1.5.0">
+        <tagDatabase tag="1.5.0"/>
     </changeSet>
 
 </databaseChangeLog>

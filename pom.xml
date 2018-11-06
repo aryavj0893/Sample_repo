@@ -64,9 +64,10 @@
                         <vat_table_name>${vat.table_name}</vat_table_name>
                         <vat_column_name>${vat.column_name}</vat_column_name>
                         <vat_default_value>${vat.default_value}</vat_default_value>
-                        <db_vendor>${db_vendor}</db_vendor>
+                        <db_vendor>${db.vendor}</db_vendor>
+                        <schema_name>${schema.name}</schema_name>
                     </systemProperties>
-                    <propertyFile>src/main/resources/liquibase/conf/liquibase-${db_vendor}.properties</propertyFile>
+                    <propertyFile>src/main/resources/liquibase/conf/liquibase-${db.vendor}.properties</propertyFile>
                     <dropFirst>${isDropFirstEnable}</dropFirst>
                     <logging>debug</logging>
                     <verbose>false</verbose>
@@ -87,10 +88,12 @@
         <profile>
             <id>postgresql</id>
             <properties>
-                <db_vendor>postgresql</db_vendor>
+                <db.vendor>postgresql</db.vendor>
                 <vat.table_name>Invoice</vat.table_name>
                 <vat.column_name>vat</vat.column_name>
                 <vat.default_value>22</vat.default_value>
+                <vat.default_value>22</vat.default_value>
+                <schema.name>liquibase</schema.name>
 
                 <isDropFirstEnable>false</isDropFirstEnable>
             </properties>

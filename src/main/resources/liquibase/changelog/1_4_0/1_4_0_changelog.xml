@@ -7,19 +7,20 @@
                             http://www.liquibase.org/xml/ns/dbchangelog
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="1_1_v_customer_invoce_tracks" author="diego">
-        <createView viewName="v_customer_invoce_track" replaceIfExists="true">
-            select c.CustomerId, i.InvoiceId, il.TrackId
-            from Customer c join Invoice i on (c.CustomerId = i.CustomerId)
-            join InvoiceLine il on (i.InvoiceId = il.InvoiceId)
-        </createView>
-        <rollback>
-            <dropView viewName="v_customer_invoce_track"/>
-        </rollback>
+    <property name="invoice_vat_type" value="INTEGER" />
+
+    <!-- The vat variables are defined into the systemProperties in pom.xml-->
+    <changeSet id="20181105_add_column_vat_to_invoice" author="diego" runAlways="true" >
+        <addColumn
+                tableName="${vat_table_name}">
+            <column name="${vat_column_name}"
+                    defaultValue="${vat_default_value}"
+                    type="${invoice_vat_type}"/>
+        </addColumn>
     </changeSet>
 
-    <changeSet author="diego" id="1.1">
-        <tagDatabase tag="1.1"/>
+    <changeSet author="diego" id="1.4.0">
+        <tagDatabase tag="1.4.0"/>
     </changeSet>
 
 </databaseChangeLog>

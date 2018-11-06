@@ -8,20 +8,19 @@
                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
 
-    <changeSet id="20181024_album_topology" author="diego">
-        <sqlFile path="${db_vendor}/03_album_topology.sql" relativeToChangelogFile="true"/>
+    <changeSet id="20181106_create_table" author="diego">
+        <preConditions onFail="WARN">
+            <sqlCheck expectedResult="0">
+                select count(schema_name)
+                from information_schema.schemata
+                where schema_name like '${schema_name}'
+            </sqlCheck>
+        </preConditions>
+        <sqlFile path="${db_vendor}/schema.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet id="20181024_invoice_topology" author="diego">
-        <sqlFile path="${db_vendor}/04_invoice_topology.sql" relativeToChangelogFile="true"/>
-    </changeSet>
-
-    <changeSet id="20181024_playlist" author="diego">
-        <sqlFile path="${db_vendor}/05_playlist.sql" relativeToChangelogFile="true"/>
-    </changeSet>
-
-    <changeSet author="diego" id="1.0">
-        <tagDatabase tag="1.1.0"/>
+    <changeSet author="diego" id="0.0.0">
+        <tagDatabase tag="0.0.0"/>
     </changeSet>
 
 </databaseChangeLog>
