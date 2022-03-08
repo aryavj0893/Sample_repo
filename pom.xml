@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <liquibase.maven.version>3.6.2</liquibase.maven.version>
+        <liquibase.maven.version>4.8.0</liquibase.maven.version>
         <liquibase.logging>debug</liquibase.logging>
     </properties>
 
